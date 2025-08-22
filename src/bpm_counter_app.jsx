@@ -50,7 +50,11 @@ export default function BpmCounterApp() {
 
   const containerBase =
     "app flex flex-col items-center justify-between p-4 transition-all duration-500 ";
-  const containerClass = containerBase + (hasTapped ? "bg-[url('/bg-cat.jpg')] bg-cover bg-center" : "bg-white");
+  const containerClass =
+    containerBase +
+    (hasTapped
+      ? "bg-[url('/bg-cat.jpg')] bg-cover bg-center"
+      : "bg-white");
 
   return (
     <div
@@ -59,8 +63,8 @@ export default function BpmCounterApp() {
     >
       {/* Header */}
       <div className="w-full flex justify-between items-center mb-2 sm:mb-4">
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-lime-400 to-emerald-600 bg-clip-text text-transparent drop-shadow">
-          🐾 CAT HR/RR <span className="opacity-80">Counter</span>
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-black drop-shadow-sm">
+          Cat RR/HR Counter
         </h1>
         <button
           onClick={() => setIsMuted(v => !v)}
@@ -79,7 +83,9 @@ export default function BpmCounterApp() {
         style={{ minHeight: "42vh", maxHeight: "460px", flex: "1 1 auto" }}
       >
         {bpm ? (
-          <span className="text-6xl text-lime-700 font-extrabold leading-none">{bpm}</span>
+          <span className="text-6xl text-lime-700 font-bold leading-none">
+            {bpm}
+          </span>
         ) : (
           <span className="text-3xl text-lime-700 font-semibold">TAP!</span>
         )}
@@ -88,9 +94,11 @@ export default function BpmCounterApp() {
       {/* Footer */}
       <div className="w-full max-w-sm mt-3 sm:mt-4 space-y-1 text-center">
         <p className="text-gray-800 text-sm sm:text-base">
-          측정 횟수: <span className="font-bold text-lime-600">{taps.length}</span>
+          측정 횟수:{" "}
+          <span className="font-bold text-lime-600">{taps.length}</span>
           {" · "}
-          경과 시간: <span className="font-bold text-lime-600">{elapsed}</span>초
+          경과 시간:{" "}
+          <span className="font-bold text-lime-600">{elapsed}</span>초
         </p>
         <button
           onClick={reset}
