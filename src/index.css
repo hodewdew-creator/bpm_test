@@ -2,11 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 전체 화면 꽉 차게 & 스크롤 제거 */
+/* 전체 화면 높이 & 스크롤 제거 */
 html, body, #root {
   height: 100%;
   margin: 0;
 }
 body {
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: #0b0c10;
+  color: #e5e7eb;
+}
+
+/* iOS Safari 하단바 대응: --vh 사용 */
+.app {
+  height: calc(var(--vh, 1vh) * 100);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 스크롤바 숨김 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
